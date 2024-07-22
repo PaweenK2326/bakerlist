@@ -1,0 +1,12 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  position: relative;
+  min-height: 100vh;
+  font-size: 20px;
+  color: #875852;
+  background-color: #F9F3EE;
+  z-index: 1;
+}

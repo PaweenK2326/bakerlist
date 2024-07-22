@@ -1,0 +1,10 @@
+.header {
+    display: flex;
+    align-items: center;
+    min-height: 4rem;
+    top: 0;
+    position: sticky;
+    background-color: #F9F3EE;
+    box-shadow: 0 4px 10px #DBBBB7;
+    z-index: 2;
+}
