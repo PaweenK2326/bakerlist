@@ -1,7 +1,6 @@
 "use client";
 
 import { useState } from "react";
-import Button, { ButtonProps } from "@mui/material/Button";
 import Menu, { MenuProps } from "@mui/material/Menu";
 import MenuItem from "@mui/material/MenuItem";
 import { Divider } from "@mui/material";
@@ -11,16 +10,7 @@ import {
   KeyboardArrowUp,
 } from "@mui/icons-material";
 import { styled } from "@mui/material/styles";
-
-const ProfileColorButton = styled(Button)<ButtonProps>(() => ({
-  borderRadius: 15,
-  color: "#875852",
-  backgroundColor: "#EDDCD2",
-  "&:hover": {
-    color: "#EDDCD2",
-    backgroundColor: "#875852",
-  },
-}));
+import { AuthButtonStyle } from "../auth-button-style";
 
 const ColorMenu = styled(Menu)<MenuProps>(() => ({
   "& .MuiPaper-root": {
@@ -46,8 +36,8 @@ export default function ProfileButton() {
   };
 
   return (
-    <div>
-      <ProfileColorButton
+    <>
+      <AuthButtonStyle
         id="profile-button"
         aria-controls={open ? "profile-menu" : undefined}
         aria-haspopup="true"
@@ -60,7 +50,7 @@ export default function ProfileButton() {
         endIcon={open ? <KeyboardArrowUp /> : <KeyboardArrowDown />}
       >
         Yukina@pigmail.com
-      </ProfileColorButton>
+      </AuthButtonStyle>
       <ColorMenu
         id="profile-menu"
         anchorEl={anchorEl}
@@ -76,6 +66,6 @@ export default function ProfileButton() {
         <Divider sx={{ mx: 3, my: 0.5, borderColor: "#875852", border: 1 }} />
         <MenuItem onClick={handleClose}>ออกจากระบบ</MenuItem>
       </ColorMenu>
-    </div>
+    </>
   );
 }

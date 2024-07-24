@@ -1,20 +1,29 @@
 "use client";
 
 import { myFont } from "@/fonts/font";
-import { createTheme } from "@mui/material/styles";
+import { createTheme, responsiveFontSizes } from "@mui/material/styles";
 
-export const theme = createTheme({
+let theme = createTheme({
+  palette: {
+    primary: {
+      main: "#875852",
+    },
+  },
   typography: {
     fontSize: 16,
     fontFamily: myFont.style.fontFamily,
     button: {
       textTransform: "none",
     },
+    allVariants: {
+      color: "#875852",
+    },
   },
   components: {
     MuiButton: {
       styleOverrides: {
         root: ({ ownerState }) => ({
+          borderRadius: 15,
           ...(ownerState.variant === "contained" &&
             ownerState.color === "primary" && {
               backgroundColor: "#875852",
@@ -40,3 +49,7 @@ export const theme = createTheme({
     },
   },
 });
+
+theme = responsiveFontSizes(theme);
+
+export default theme;
