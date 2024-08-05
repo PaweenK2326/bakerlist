@@ -11,3 +11,8 @@ export const AuthButtonStyle = styled(Button)<ButtonProps>(() => ({
     backgroundColor: "#875852",
   },
 }));
+
+export const RoundButtonStyle = styled(Button)<ButtonProps>(() => ({
+  borderRadius: 30,
+  padding: "5px 15px 5px 20px",
+}));

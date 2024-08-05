@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import "./globals.css";
 import { ThemeProvider } from "@mui/material/styles";
 import theme from "@/utils/theme";
+
 import MainHeader from "@/components/main-header/main-header";
 import Footer from "@/components/footer/footer";
 import { myFont } from "@/fonts/font";

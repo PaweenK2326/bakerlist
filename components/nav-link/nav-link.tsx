@@ -7,16 +7,15 @@ import classes from "./nav-link.module.css";
 interface NavProps {
   href: string;
   children: React.ReactNode;
-  isActive?: boolean;
 }
 
 export default function NavLink(props: NavProps) {
-  const { href, children, isActive } = props;
+  const { href, children } = props;
 
   const path: string = usePathname();
 
   let linkClass: string = classes.link;
-  if (isActive || path === href) {
+  if (path === href) {
     linkClass += ` ${classes.active}`;
   }
 

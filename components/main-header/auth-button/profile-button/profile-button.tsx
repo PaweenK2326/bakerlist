@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import Menu, { MenuProps } from "@mui/material/Menu";
+import Menu from "@mui/material/Menu";
 import MenuItem from "@mui/material/MenuItem";
 import { Divider } from "@mui/material";
 import {
@@ -9,30 +9,21 @@ import {
   KeyboardArrowDown,
   KeyboardArrowUp,
 } from "@mui/icons-material";
-import { styled } from "@mui/material/styles";
 import { AuthButtonStyle } from "../auth-button-style";
-
-const ColorMenu = styled(Menu)<MenuProps>(() => ({
-  "& .MuiPaper-root": {
-    borderRadius: 15,
-    color: "#875852",
-    backgroundColor: "#FFFCFA",
-    minWidth: 200,
-    boxShadow: "#DBBBB7 0 4px 10px",
-  },
-  "& .MuiMenuItem-root": {
-    justifyContent: "center",
-  },
-}));
+import AuthDialog from "../auth-dialog/auth-dialog";
+import ProfileDialog from "./profile-dialog/profile-dialog";
 
 export default function ProfileButton() {
   const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
+  const [openLoginDialog, setOpenLoginDialog] = useState<boolean>(false);
+
   const open = Boolean(anchorEl);
   const handleClick = (event: React.MouseEvent<HTMLButtonElement>) => {
     setAnchorEl(event.currentTarget);
   };
-  const handleClose = () => {
+  const handleProfileClick = () => {
     setAnchorEl(null);
+    setOpenLoginDialog(true);
   };
 
   return (
@@ -51,21 +42,34 @@ export default function ProfileButton() {
       >
         Yukina@pigmail.com
       </AuthButtonStyle>
-      <ColorMenu
+      <Menu
         id="profile-menu"
         anchorEl={anchorEl}
         open={open}
-        onClose={handleClose}
+        onClose={() => setAnchorEl(null)}
         MenuListProps={{
           "aria-labelledby": "profile-button",
         }}
         transformOrigin={{ horizontal: "right", vertical: "top" }}
         anchorOrigin={{ horizontal: "right", vertical: "bottom" }}
+        sx={{
+          "& .MuiMenuItem-root": {
+            justifyContent: "center",
+          },
+        }}
       >
-        <MenuItem onClick={handleClose}>ข้อมูลผู้ใช้</MenuItem>
+        <MenuItem onClick={handleProfileClick}>ข้อมูลผู้ใช้</MenuItem>
         <Divider sx={{ mx: 3, my: 0.5, borderColor: "#875852", border: 1 }} />
-        <MenuItem onClick={handleClose}>ออกจากระบบ</MenuItem>
-      </ColorMenu>
+        <MenuItem onClick={() => setAnchorEl(null)}>ออกจากระบบ</MenuItem>
+      </Menu>
+
+      <AuthDialog
+        title="ข้อมูลผู้ใช้"
+        onClose={() => setOpenLoginDialog(false)}
+        open={openLoginDialog}
+      >
+        <ProfileDialog></ProfileDialog>
+      </AuthDialog>
     </>
   );
 }

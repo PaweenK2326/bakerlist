@@ -1,19 +1,36 @@
 "use client";
 
 import { alpha, styled } from "@mui/material/styles";
-import InputBase from "@mui/material/InputBase";
+import { DatePicker } from "@mui/x-date-pickers";
 
-export const InputBaseStyle = styled(InputBase)(({ theme }) => ({
+export const DatePickerStyle = styled(DatePicker)(({ theme }) => ({
   "label + &": {
     marginTop: theme.spacing(3),
   },
+  "& .MuiInputBase-root": {
+    paddingRight: 15,
+  },
   "& .MuiInputBase-input": {
     borderRadius: 30,
-    position: "relative",
+    color: "#4A4A4A",
+    padding: "5px 3px 5px 20px",
+    zIndex: 2,
+  },
+  "& .MuiInputAdornment-root": {
+    marginLeft: 0,
+    zIndex: 2,
+  },
+  "& .MuiButtonBase-root": {
+    padding: 5,
+  },
+  "& .MuiSvgIcon-root": {
+    fontSize: "1.5rem",
+  },
+  "& fieldset": {
+    borderRadius: 30,
     backgroundColor: "#F9F3EE",
     border: 0,
-    color: "#4A4A4A",
-    padding: "5px 15px 5px 20px",
+    zIndex: 1,
     transition: theme.transitions.create([
       "border-color",
       "background-color",

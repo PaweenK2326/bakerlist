@@ -2,11 +2,13 @@
 
 import { myFont } from "@/fonts/font";
 import { createTheme, responsiveFontSizes } from "@mui/material/styles";
+import type {} from "@mui/x-data-grid/themeAugmentation";
 
 let theme = createTheme({
   palette: {
     primary: {
       main: "#875852",
+      dark: "#724b46",
     },
   },
   typography: {
@@ -18,18 +20,23 @@ let theme = createTheme({
     allVariants: {
       color: "#875852",
     },
+    h1: {
+      fontSize: "2.5rem",
+    },
+    h2: {
+      fontSize: "2rem",
+    },
   },
   components: {
     MuiButton: {
       styleOverrides: {
         root: ({ ownerState }) => ({
           borderRadius: 15,
+          padding: "7px 40px",
           ...(ownerState.variant === "contained" &&
             ownerState.color === "primary" && {
               backgroundColor: "#875852",
               color: "#FFFFFF",
-              fontSize: 20,
-              padding: "7px 40px",
               "&:hover": {
                 backgroundColor: "#724b46",
               },
@@ -38,13 +45,49 @@ let theme = createTheme({
             ownerState.color === "secondary" && {
               backgroundColor: "#FFCA64",
               color: "#875852",
-              fontSize: 20,
-              padding: "7px 40px",
               "&:hover": {
                 backgroundColor: "#efbc5b",
               },
             }),
+          ...(ownerState.variant === "contained" &&
+            ownerState.color === "info" && {
+              backgroundColor: "#FFFFFF",
+              color: "#4A4A4A",
+              "&:hover": {
+                backgroundColor: "#f5f5f5",
+              },
+            }),
         }),
+      },
+    },
+    MuiPaper: {
+      styleOverrides: {
+        root: {
+          "&.MuiPaper-root": {
+            borderRadius: 15,
+            color: "#875852",
+            backgroundColor: "#FFFCFA",
+            minWidth: 200,
+            boxShadow: "#DBBBB7 0 4px 10px",
+          },
+        },
+      },
+    },
+    MuiDataGrid: {
+      styleOverrides: {
+        root: {
+          backgroundColor: "#FFFFFF",
+          "& .MuiDataGrid-columnHeader": {
+            backgroundColor: "#D9D9D9",
+          },
+          "& .MuiDataGrid-columnHeaderTitle": {
+            color: "#875852",
+            fontWeight: "bold",
+          },
+          "& .MuiDataGrid-cell": {
+            color: "#4A4A4A",
+          },
+        },
       },
     },
   },
