@@ -52,7 +52,7 @@ export default function Home() {
             alt="delicious-sweet-cake-with-strawberries-baiser-plate"
             className="shadow-md shadow-[#DBBBB7] w-full mb-3"
           />
-          <Link href="/recipes">
+          <Link href="/my-recipes">
             <Button variant="contained" color="primary" sx={{ fontSize: 20 }}>
               สูตรของฉัน
             </Button>

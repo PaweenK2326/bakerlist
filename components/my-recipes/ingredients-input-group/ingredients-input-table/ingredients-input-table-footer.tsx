@@ -1,9 +1,9 @@
+import AddIconButton from "@/components/buttons/add-icon-button/add-icon-button";
+import { LabelInputBaseStyle } from "@/components/label-input/label-input-style";
 import { Box, MenuItem, Select, SxProps } from "@mui/material";
-import { LabelInputBaseStyle } from "../label-input/label-input-style";
-import { GridFooterContainer, GridPagination } from "@mui/x-data-grid";
-import AddIconButton from "../buttons/add-icon-button/add-icon-button";
+import { GridFooterContainer } from "@mui/x-data-grid";
 
-export default function IngredientsTableFooter() {
+export default function IngredientsInputTableFooter() {
   const inputStyleProps: SxProps = {
     textAlign: "center",
     flex: 1,
@@ -11,22 +11,11 @@ export default function IngredientsTableFooter() {
   };
 
   return (
-    <GridFooterContainer
-      sx={{
-        flexDirection: "column",
-        alignItems: "end",
-      }}
-    >
+    <GridFooterContainer>
       <Box sx={{ py: 1, display: "flex", width: "100%" }}>
-        <LabelInputBaseStyle
-          type="text"
-          placeholder="ชื่อวัตถุดิบ"
-          sx={inputStyleProps}
-        />
-        <LabelInputBaseStyle type="text" placeholder="แบรนด์" sx={inputStyleProps} />
         <Select
           input={<LabelInputBaseStyle />}
-          sx={inputStyleProps}
+          sx={{ ...inputStyleProps, flex: 2 }}
           MenuProps={{
             sx: {
               "& .MuiMenuItem-root": {
@@ -59,7 +48,12 @@ export default function IngredientsTableFooter() {
           <MenuItem value={"ลิตร"}>ลิตร</MenuItem>
           <MenuItem value={"ฟอง"}>ฟอง</MenuItem>
         </Select>
-        <LabelInputBaseStyle type="number" placeholder="ราคา" sx={inputStyleProps} />
+        <LabelInputBaseStyle
+          type="number"
+          placeholder="ราคา"
+          sx={inputStyleProps}
+          disabled
+        />
         <Box
           sx={{
             display: "flex",
@@ -71,8 +65,6 @@ export default function IngredientsTableFooter() {
           <AddIconButton />
         </Box>
       </Box>
-
-      <GridPagination />
     </GridFooterContainer>
   );
 }

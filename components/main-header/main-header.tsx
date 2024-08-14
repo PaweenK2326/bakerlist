@@ -16,7 +16,7 @@ export default function MainHeader() {
           <nav className="flex items-center gap-20">
             <NavLink href="/">หน้าแรก</NavLink>
             <NavLink href="/ingredients">วัตถุดิบ</NavLink>
-            <NavLink href="/recipes">สูตรขนม</NavLink>
+            <NavLink href="/my-recipes">สูตรขนม</NavLink>
           </nav>
           <div className="flex items-center">
             <AuthButton></AuthButton>

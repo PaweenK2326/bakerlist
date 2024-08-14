@@ -1,0 +1,19 @@
+.quill .ql-container {
+    border-radius: 30px;
+    position: relative;
+    background-color: #FFFFFF;
+    border: 0;
+    color: #4A4A4A;
+    padding: 5px 15px 5px 20px;
+    font-size: 1.2rem;
+    font-family: inherit;
+    min-height: 10rem;
+}
+
+.ql-editor {
+    line-height: 2;
+}
+
+.ql-editor ol {
+    padding-left: 0;
+}

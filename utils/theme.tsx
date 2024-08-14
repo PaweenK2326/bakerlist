@@ -26,6 +26,13 @@ let theme = createTheme({
     h2: {
       fontSize: "2rem",
     },
+    h3: {
+      fontSize: "1.75rem",
+    },
+    h4: {
+      fontSize: "1.5rem",
+      fontWeight: "bold",
+    },
   },
   components: {
     MuiButton: {

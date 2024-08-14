@@ -4,7 +4,7 @@ import classes from "./footer.module.css";
 export default function Footer() {
   return (
     <>
-      <div className={classes["space-holder"]}></div>
+      <div className={classes.space}></div>
       <footer className={classes.footer}>
         <div className="w-full grid grid-cols-6">
           <div className="col-start-2 col-span-4 flex justify-between">

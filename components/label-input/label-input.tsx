@@ -1,7 +1,7 @@
 import FormControl from "@mui/material/FormControl";
 import InputLabel from "@mui/material/InputLabel";
 import _ from "lodash";
-import { InputBaseStyle } from "./label-input-style";
+import { LabelInputBaseStyle } from "./label-input-style";
 import Select from "@mui/material/Select";
 
 interface InputProps {
@@ -41,7 +41,7 @@ export default function LabelInput(props: InputProps) {
       </InputLabel>
       {isSelect ? (
         <Select
-          input={<InputBaseStyle />}
+          input={<LabelInputBaseStyle />}
           sx={{
             textAlign: textAlign ?? "left",
           }}
@@ -59,7 +59,7 @@ export default function LabelInput(props: InputProps) {
           {children}
         </Select>
       ) : (
-        <InputBaseStyle
+        <LabelInputBaseStyle
           id={slug}
           value={value}
           type={type ?? "text"}
